@@ -28,7 +28,7 @@ The user authentication system includes three main files:
 3. Install the required dependencies:
 
     ```bash
-    pip install pymongo pillow
+    pip install -r requirements.txt
     ```
 
 ### Usage
