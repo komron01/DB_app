@@ -13,13 +13,13 @@ The project consists of two main files:
 1. Clone the repository to your local machine:
 
     ```bash
-    git clone https://github.com/your-username/your-repository.git
+    git clone https://github.com/komron01/DB_app.git
     ```
 
 2. Navigate to the project directory:
 
     ```bash
-    cd your-repository
+    cd DB_app
     ```
 
 3. Install the required dependencies:
@@ -35,4 +35,4 @@ The project consists of two main files:
 To run the user authentication system, execute the following command:
 
 ```bash
-python autho.py
+python main_W.py
