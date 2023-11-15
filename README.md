@@ -38,4 +38,4 @@ The user authentication system includes three main files:
 To run the user authentication system, execute the following command:
 
 ```bash
-python autho.py
+python main_W.py
