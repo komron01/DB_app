@@ -1,14 +1,17 @@
-# User Authentication System with Tkinter and MongoDB
+# User Authentication System and Arithmetic Game
 
-This project demonstrates a simple user authentication system using Tkinter for the graphical user interface and MongoDB for storing user credentials.
+This project combines a simple user authentication system and an arithmetic game. The user authentication system allows users to log in, create accounts, and stores user credentials in a MongoDB database. The arithmetic game tests users' addition skills and provides feedback on their answers.
 
-## Description
+## User Authentication System
 
-The project consists of two main files:
-- `autho.py`: Handles the login functionality and includes a button to redirect to the registration form.
+### Description
+
+The user authentication system includes three main files:
+- `autho.py`: Manages the login functionality, user authentication, and includes a button to redirect to the registration form.
 - `reg.py`: Implements a user registration form that adds new users to a MongoDB database.
+- `main_W.py`: Implements an arithmetic game that tests users' addition skills.
 
-## Installation
+### Installation
 
 1. Clone the repository to your local machine:
 
@@ -25,14 +28,14 @@ The project consists of two main files:
 3. Install the required dependencies:
 
     ```bash
-    pip install pymongo
+    pip install pymongo pillow
     ```
 
-## Usage
+### Usage
 
-### Running the Login System
+#### Running the User Authentication System
 
 To run the user authentication system, execute the following command:
 
 ```bash
-python main_W.py
+python autho.py
