@@ -3,6 +3,7 @@ from PIL import Image, ImageTk
 import autho
 import random
 from tkinter import messagebox
+from dashboard import Dashboard
 
 class ArithmeticGame:
     def __init__(self):
@@ -68,9 +69,15 @@ class ArithmeticGame:
         # Start the GUI event loop
         root.mainloop()
 
+# Inside main_W.py
+
 if __name__ == '__main__':
-    is_authorized = autho.login()
-    if is_authorized:
-        game = ArithmeticGame()
-        game.start_game()
-    print(is_authorized)
+    user_data = autho.login()
+
+    if user_data is not None and user_data is not False:
+        print("User is authorized.")
+        root = tk.Tk()
+        dashboard = Dashboard(root, user_data)
+        root.mainloop()
+    else:
+        print("User is not authorized.")

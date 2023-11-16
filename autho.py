@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import messagebox
 import subprocess
 import pymongo
+from dashboard import Dashboard
 
 def login():
     def validate_login():
@@ -12,9 +13,13 @@ def login():
             result_label.config(text="Login successful!", fg="green")
             tkWindow.destroy()  # Close the login window
             tkWindow.login_status = True  # Set login status to True
+            global user_data
+            user_data = mycol.find_one({"email": username})  # Retrieve user data from the database
+            return user_data
         else:
             result_label.config(text="Invalid login or password", fg="red")
             tkWindow.login_status = False  # Set login status to False
+            return None  # Return login status as False and no user data
 
     def create_account():
         # Open the registration form using subprocess
@@ -59,12 +64,16 @@ def login():
     result_label.grid(row=4, column=0, columnspan=2)
 
     tkWindow.mainloop()
-
+    if tkWindow.login_status:
+        return user_data
     return tkWindow.login_status  # Return the login status after the Tkinter main loop has ended
 
 if __name__ == '__main__':
     is_authorized = login()
     if is_authorized:
         print("User is authorized.")
+        root = tk.Tk()
+        dashboard = Dashboard(root)
+        root.mainloop()
     else:
         print("User is not authorized.")
