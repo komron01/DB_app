@@ -25,12 +25,13 @@ class AdminDashboard:
         # Insert user data into the treeview
         for user in user_list:
             user_id = str(user.get('_id', 'N/A'))
-            self.tree.insert('', 'end', text=user_id, values=(user.get('first_name', 'N/A'),
-                                                            user.get('last_name', 'N/A'),
-                                                            user.get('email', 'N/A'),
-                                                            user.get('gender', 'N/A'),
-                                                            user.get('role', 'N/A'),
-                                                            user.get('level', 'N/A')))
+            self.tree.insert('', 'end', iid=user_id, text=user_id, values=(
+                                                                         user.get('first_name', 'N/A'),
+                                                                         user.get('last_name', 'N/A'),
+                                                                         user.get('email', 'N/A'),
+                                                                         user.get('gender', 'N/A'),
+                                                                         user.get('role', 'N/A'),
+                                                                         user.get('level', 'N/A')))
 
         # Set column names for treeview
         column_names = ['First Name', 'Last Name', 'Email', 'Gender', 'Role', 'Level']
