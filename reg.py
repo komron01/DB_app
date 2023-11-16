@@ -24,13 +24,15 @@ def register_user():
         messagebox.showerror("Error", "Email already exists. Please use a different email.")
         return
 
-    # Insert new user into the database
+    # Insert new user into the database with role "regular"
     new_user = {
         "first_name": first_name,
         "last_name": last_name,
         "email": email,
         "gender": gender,
-        "password_": password
+        "password_": password,
+        "role": "regular",
+        "level": "N"
     }
 
     mycol.insert_one(new_user)
@@ -70,7 +72,9 @@ tk.Label(root, text="Email:").grid(row=2, column=0)
 tk.Entry(root, textvariable=email_var).grid(row=2, column=1)
 
 tk.Label(root, text="Gender:").grid(row=3, column=0)
-tk.Entry(root, textvariable=gender_var).grid(row=3, column=1)
+# Use a dropdown menu for gender
+gender_options = ["Male", "Female"]
+tk.OptionMenu(root, gender_var, *gender_options).grid(row=3, column=1)
 
 tk.Label(root, text="Password:").grid(row=4, column=0)
 tk.Entry(root, textvariable=password_var, show='*').grid(row=4, column=1)
